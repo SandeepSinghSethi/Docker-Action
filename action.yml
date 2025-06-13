@@ -10,6 +10,10 @@ outputs:
   answer:
     description: "The answer to everything is  always 42"
 
+branding:
+  icon: 'alert-triangle'
+  color: 'blue'
+
 runs:
   using: 'docker'
   image: "Dockerfile"
