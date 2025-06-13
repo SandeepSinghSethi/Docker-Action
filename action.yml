@@ -11,7 +11,7 @@ outputs:
     description: "The answer to everything is  always 42"
 
 runs:
-  using: docker
+  using: 'docker'
   image: "Dockerfile"
   args:
     -  ${{inputs.who-to-greet}}
