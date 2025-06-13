@@ -1,0 +1,17 @@
+name: "Test docker actions in github"
+description: "Greets someone and return 42"
+
+inputs:
+  who-to-greet: #id of input
+    description: "who to greet"
+    required: true
+    default: "Hello"
+outputs:
+  answer:
+    description: "The answer to everything is  always 42"
+
+runs:
+  using: docker
+  image: "Dockerfile"
+  args:
+    -  ${{inputs.who-to-greet}}
