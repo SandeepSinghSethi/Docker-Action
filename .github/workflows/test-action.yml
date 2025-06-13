@@ -13,10 +13,10 @@ jobs:
         id: my-container-action
         uses: ./
         with:
-          who-to-greet: "@wufland"
+          who-to-greet: "@SandeepSinghSethi"
 
       - name: Output the answer
-        run: echo "The answer is ${{steps.my-container-action.output.answer}}"
+        run: echo "The answer is ${{steps.my-container-action.outputs.answer}}"
 
       - name: Test the container
         if: ${{  steps.my-container-action.output.answer != 42 }}
