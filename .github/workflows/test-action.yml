@@ -1,0 +1,26 @@
+name: "Testing the main action.yml file on this repo"
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo to use the actions locally
+        uses: actions/checkout@v4.2.2
+
+      - name: Run my own container action
+        id: my-container-action
+        uses: ./
+        with:
+          who-to-greet: "@wufland"
+
+      - name: Output the answer
+        run: echo "The answer is ${{steps.my-container-action.output.answer}}"
+
+      - name: Test the container
+        if: ${{  steps..my-container-action.output.answer != 42 }}
+        run: |
+          echo "::error file=entrypoint.sh,line=4,title=Error in container::The answer wasn't expected"
+
+  
